@@ -7,11 +7,13 @@ def Create_Name ():
     result = ""
     key = ""
 
+    #segmenting the random characters between uppercase and lowercase vowels and consonants
     uppercase_consonants = ''.join(c for c in string.ascii_uppercase if c not in 'AEIOU')
     uppercase_vowels = 'AEIOU'
     lowercase_consonants = ''.join(c for c in string.ascii_lowercase if c not in 'aeiou')
     lowercase_vowels = 'aeiou'
 
+    #This is used to map certain characters for when the user makes a key
     pattern_mapping = {
     'C': uppercase_consonants,
     'V': uppercase_vowels,
@@ -19,8 +21,11 @@ def Create_Name ():
     'v': lowercase_vowels
     }
 
+    #Grab the key from the entry, need to add entry validation however this works
     key = keyEntry.get()
 
+    #makes the name by going through the key character by character and generating a 
+    #random character based on which character was in the key
     result = ''.join(random.choice(pattern_mapping[char]) for char in key)
     resultLabel.config(text= result)
     
