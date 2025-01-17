@@ -28,7 +28,7 @@ def Create_Name ():
     #random character based on which character was in the key
     result = ''.join(random.choice(pattern_mapping[char]) for char in key)
     resultLabel.config(text= result)
-    
+
 root = tk.Tk()
 root.title("Random Name Generator")
 root.geometry("250x100")
